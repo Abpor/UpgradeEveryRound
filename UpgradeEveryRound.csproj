@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GameBaseDir>E:\SteamLibrary\steamapps\common\REPO</GameBaseDir>
+    <GameBaseDir>G:\SteamLibrary\steamapps\common\REPO</GameBaseDir>
     <GameAssemblyDir>$(GameBaseDir)\REPO_Data\Managed</GameAssemblyDir>
     <AssemblyVersion>1.1.7</AssemblyVersion>
   </PropertyGroup>
@@ -34,7 +34,7 @@
 
   <ItemGroup>
     <Reference Include="MenuLib">
-      <HintPath>C:\Users\cadyn\AppData\Roaming\r2modmanPlus-local\REPO\profiles\stimky\BepInEx\plugins\nickklmao-MenuLib\MenuLib.dll</HintPath>
+      <HintPath>C:\Users\robert\AppData\Roaming\r2modmanPlus-local\REPO\profiles\Dev\BepInEx\plugins\nickklmao-MenuLib\MenuLib.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony">
       <HintPath>$(GameBaseDir)\BepInEx\core\0Harmony.dll</HintPath>
