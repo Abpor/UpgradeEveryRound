@@ -12,9 +12,9 @@ namespace UpgradeEveryRound;
 [BepInPlugin(modGUID, modName, modVersion), BepInDependency("nickklmao.menulib", "2.1.1")]
 public class Plugin : BaseUnityPlugin
 {
-    public const string modGUID = "dev.redfops.repo.upgradeeveryround";
-    public const string modName = "upgradeeveryround";
-    public const string modVersion = "1.0.0";
+    public const string modGUID = "dev.abpor.repo.upgradereveryround";
+    public const string modName = "upgradereveryround";
+    public const string modVersion = "1.0.1";
 
     public static bool isOpen = false;
 
@@ -38,7 +38,6 @@ public class Plugin : BaseUnityPlugin
         harmony.PatchAll(typeof(UpgradePlayerHealthPatch));
         harmony.PatchAll(typeof(UpgradePlayerSprintSpeedPatch));
         harmony.PatchAll(typeof(UpgradePlayerTumbleLaunchPatch));
-
 
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
     }
@@ -140,17 +139,17 @@ public static class PlayerSpawnPatch
             return;
         }, parent, new Vector2(46f, 144f)));
 
-        repoPopupPage.AddElement(parent => MenuAPI.CreateREPOButton("Map Player Count", () => {
-            PunManager.instance.UpgradeMapPlayerCount(SemiFunc.PlayerGetSteamID(SemiFunc.PlayerAvatarGetFromPhotonID(SemiFunc.PhotonViewIDPlayerAvatarLocal())));
-            StatsUI.instance.Fetch();
-            StatsUI.instance.ShowStats();
-            CameraGlitch.Instance.PlayUpgrade();
+        //repoPopupPage.AddElement(parent => MenuAPI.CreateREPOButton("Map Player Count", () => {
+        //    PunManager.instance.UpgradeMapPlayerCount(SemiFunc.PlayerGetSteamID(SemiFunc.PlayerAvatarGetFromPhotonID(SemiFunc.PhotonViewIDPlayerAvatarLocal())));
+        //    StatsUI.instance.Fetch();
+        //    StatsUI.instance.ShowStats();
+        //    CameraGlitch.Instance.PlayUpgrade();
 
 
-            repoPopupPage.ClosePage(true);
-            Plugin.isOpen = false;
-            return;
-        }, parent, new Vector2(186f, 144f)));
+        //    repoPopupPage.ClosePage(true);
+        //    Plugin.isOpen = false;
+        //    return;
+        //}, parent, new Vector2(186f, 144f)));
 
         repoPopupPage.OpenPage(false);
     }
