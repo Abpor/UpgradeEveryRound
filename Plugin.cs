@@ -15,9 +15,9 @@ namespace UpgradeEveryRound;
 [BepInPlugin(modGUID, modName, modVersion), BepInDependency("nickklmao.menulib", "2.1.3")]
 public class Plugin : BaseUnityPlugin
 {
-    public const string modGUID = "dev.redfops.repo.upgradeeveryround";
-    public const string modName = "Upgrade Every Round";
-    public const string modVersion = "1.1.0";
+    public const string modGUID = "dev.abpor.repo.upgradereveryround";
+    public const string modName = "Upgrader Every Round";
+    public const string modVersion = "1.1.1";
 
     public static bool isOpen = false;
     public static ConfigEntry<int> upgradesPerRound;
@@ -50,7 +50,6 @@ public class Plugin : BaseUnityPlugin
         harmony.PatchAll(typeof(UpgradePlayerHealthPatch));
         harmony.PatchAll(typeof(UpgradePlayerSprintSpeedPatch));
         harmony.PatchAll(typeof(UpgradePlayerTumbleLaunchPatch));
-
 
         Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
     }
@@ -105,7 +104,7 @@ public static class PlayerSpawnPatch
         repoPopupPage.menuPage.onPageEnd.AddListener(() => { Plugin.isOpen = false; }); //They really shouldn't be able to close it, but just in case we want to make sure their menus work
 
         int numChoices = Plugin.limitedChoices.Value ? Plugin.numChoices.Value : 8;
-        List<int> choices = [0, 1, 2, 3, 4, 5, 6, 7];
+        List<int> choices = [0, 1, 2, 3, 4, 5, 6];
 
         //Add limited buttons randomly or all in order depending on config
         for (int i = 0; i < numChoices; i++)
@@ -113,7 +112,7 @@ public static class PlayerSpawnPatch
             int choiceIndex = Plugin.limitedChoices.Value ? Random.Range(0, choices.Count) : 0; //If not limited choices then we don't need to use random
             int choice = choices[choiceIndex];
             choices.RemoveAt(choiceIndex);
-            
+
 
             switch (choice)
             {
@@ -180,14 +179,14 @@ public static class PlayerSpawnPatch
                     }, parent, new Vector2(46f, 144f)));
                     break;
 
-                case 7:
-                    repoPopupPage.AddElement(parent => MenuAPI.CreateREPOButton("Map Player Count", () =>
-                    {
-                        PunManager.instance.UpgradeMapPlayerCount(_steamID);
-                        Plugin.ApplyUpgrade(_steamID, repoPopupPage);
-                        return;
-                    }, parent, new Vector2(186f, 144f)));
-                    break;
+                //case 7:
+                //    repoPopupPage.AddElement(parent => MenuAPI.CreateREPOButton("Map Player Count", () =>
+                //    {
+                //        PunManager.instance.UpgradeMapPlayerCount(_steamID);
+                //        Plugin.ApplyUpgrade(_steamID, repoPopupPage);
+                //        return;
+                //    }, parent, new Vector2(186f, 144f)));
+                //    break;
             }
         }
 
