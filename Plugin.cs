@@ -7,7 +7,7 @@ using UnityEngine;
 using Photon.Pun;
 using Steamworks;
 
-namespace UpgradeEveryRound;
+namespace UpgraderEveryRound;
 
 [BepInPlugin(modGUID, modName, modVersion), BepInDependency("nickklmao.menulib", "2.1.1")]
 public class Plugin : BaseUnityPlugin
