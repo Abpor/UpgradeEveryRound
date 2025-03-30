@@ -10,7 +10,7 @@ using Steamworks;
 using BepInEx.Configuration;
 using System.Linq;
 
-namespace UpgradeEveryRound;
+namespace UpgraderEveryRound;
 
 [BepInPlugin(modGUID, modName, modVersion), BepInDependency("nickklmao.menulib", "2.1.3")]
 public class Plugin : BaseUnityPlugin
