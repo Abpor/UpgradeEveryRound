@@ -103,7 +103,7 @@ public static class PlayerSpawnPatch
 
         repoPopupPage.menuPage.onPageEnd.AddListener(() => { Plugin.isOpen = false; }); //They really shouldn't be able to close it, but just in case we want to make sure their menus work
 
-        int numChoices = Plugin.limitedChoices.Value ? Plugin.numChoices.Value : 8;
+        int numChoices = Plugin.limitedChoices.Value ? Plugin.numChoices.Value : 7;
         List<int> choices = [0, 1, 2, 3, 4, 5, 6];
 
         //Add limited buttons randomly or all in order depending on config
