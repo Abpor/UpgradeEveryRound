@@ -60,9 +60,6 @@
     <Reference Include="Klattersynth">
       <HintPath>$(GameAssemblyDir)\Klattersynth.dll</HintPath>
     </Reference>
-    <Reference Include="MenuLib">
-      <HintPath>$(GameBaseDir)\BepInEx\plugins\Menu Lib\MenuLib.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>$(GameBaseDir)\BepInEx\core\Mono.Cecil.dll</HintPath>
     </Reference>

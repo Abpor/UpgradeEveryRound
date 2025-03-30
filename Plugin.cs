@@ -42,7 +42,7 @@ public class Plugin : BaseUnityPlugin
         harmony.PatchAll(typeof(RunManagerChangeLevelPatch));
         harmony.PatchAll(typeof(RunManagerMainMenuPatch));
         harmony.PatchAll(typeof(StatsManagerPatch));
-        harmony.PatchAll(typeof(UpgradeMapPlayerCountPatch));
+        //harmony.PatchAll(typeof(UpgradeMapPlayerCountPatch));
         harmony.PatchAll(typeof(UpgradePlayerEnergyPatch));
         harmony.PatchAll(typeof(UpgradePlayerExtraJumpPatch));
         harmony.PatchAll(typeof(UpgradePlayerGrabRangePatch));
@@ -208,18 +208,18 @@ public static class StatsManagerPatch
 
 //Yippee networking and boilerplate!
 
-[HarmonyPatch(typeof(PunManager))]
-[HarmonyPatch(nameof(PunManager.UpgradeMapPlayerCount))]
-public static class UpgradeMapPlayerCountPatch
-{
-    static void Postfix(string _steamID, PhotonView ___photonView, StatsManager ___statsManager)
-    {
-        if(!SemiFunc.IsMasterClient() && GameManager.Multiplayer() && Plugin.isOpen)
-        {
-            ___photonView.RPC("UpgradeMapPlayerCountRPC", RpcTarget.Others, _steamID, ___statsManager.playerUpgradeMapPlayerCount[_steamID]);
-        }
-    }
-}
+//[HarmonyPatch(typeof(PunManager))]
+//[HarmonyPatch(nameof(PunManager.UpgradeMapPlayerCount))]
+//public static class UpgradeMapPlayerCountPatch
+//{
+//    static void Postfix(string _steamID, PhotonView ___photonView, StatsManager ___statsManager)
+//    {
+//        if(!SemiFunc.IsMasterClient() && GameManager.Multiplayer() && Plugin.isOpen)
+//        {
+//            ___photonView.RPC("UpgradeMapPlayerCountRPC", RpcTarget.Others, _steamID, ___statsManager.playerUpgradeMapPlayerCount[_steamID]);
+//        }
+//    }
+//}
 
 [HarmonyPatch(typeof(PunManager))]
 [HarmonyPatch(nameof(PunManager.UpgradePlayerEnergy))]
